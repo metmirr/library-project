@@ -1,0 +1,4 @@
+{
+    "python.pythonPath": "/home/metmirr/.local/share/virtualenvs/library-project-BU_ogzIu/bin/python",
+    "python.formatting.provider": "black"
+}
