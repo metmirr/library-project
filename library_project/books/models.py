@@ -1,6 +1,9 @@
+import datetime
+
 from django.db import models
 from django.utils import timezone
-import datetime
+
+from .managers import BookManager
 
 
 class Publisher(models.Model):
@@ -30,6 +33,8 @@ class Book(models.Model):
     authors = models.ManyToManyField(Author, related_name="books")
     isbn = models.CharField(max_length=13)
     publication_date = models.DateField()
+
+    objects = BookManager()
 
     def __str__(self):
         return self.title
