@@ -1,3 +1,5 @@
+import logging
+
 from django.core.serializers import serialize
 from django.forms import model_to_dict
 from django.http import JsonResponse
@@ -12,6 +14,11 @@ from .serializers import BookSerializer
 def total_book(request):
     count = Book.objects.aggregate(number_of_books=Count("title"))
     return JsonResponse(count, safe=False)
+
+
+def oreilly_books(request):
+    books = list(Book.oreilly_objects.all().values())
+    return JsonResponse(books, safe=False)
 
 
 class BookAPIView(generics.ListAPIView):
