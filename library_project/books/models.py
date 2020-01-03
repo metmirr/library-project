@@ -3,7 +3,7 @@ import datetime
 from django.db import models
 from django.utils import timezone
 
-from .managers import BookManager
+from .managers import BookManager, OreillyBookManager
 
 
 class Publisher(models.Model):
@@ -35,6 +35,7 @@ class Book(models.Model):
     publication_date = models.DateField()
 
     objects = BookManager()
+    oreilly_objects = OreillyBookManager()
 
     def __str__(self):
         return self.title
